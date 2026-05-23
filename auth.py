@@ -24,7 +24,9 @@ def register():
         print("1. First letter must be uppercase")
         print("2. Must contain one special character")
         print("3. Must end with numbers")
-        return False, None
+        continue_registration = input("Do you want to try again? (y/n): ").strip().lower()
+        if continue_registration == 'y':
+            return register()
 
     with open(USER_FILE, "r") as file:
         users = json.load(file)
